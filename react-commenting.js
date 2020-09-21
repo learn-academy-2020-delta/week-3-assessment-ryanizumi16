@@ -7,7 +7,7 @@
 // src/App.js
 
 import React, { Component } from 'react'
-// 1)
+// 1) Class Board is importing the component Dice from the file Dice
 import Dice from './Dice'
 import Log from './Log'
 
@@ -22,7 +22,7 @@ import dice6 from '../assets/dice-6.png'
 class Board extends Component{
   constructor(props){
     super(props)
-    // 2)
+    // 2) this is creating your state objects
     this.state = {
       rollImages: [dice1, dice2, dice3, dice4, dice5, dice6],
       currentPic: dice,
@@ -31,12 +31,12 @@ class Board extends Component{
   }
 
   handleRoll = () => {
-    // 3)
+    // 3)you are destructuring rollImages and diceLog
     let { rollImages, diceLog } = this.state
     let randomNum = Math.ceil(Math.random() * rollImages.length)
-    // 4)
+    // 4)creating a new variable newRoll to equal rollImages which is an array that has the built in method math.random giving the index a random number  1 through 6
     let newRoll = rollImages[randomNum]
-    // 5)
+    // 5)this.setState updates the currentPic everytime time and diceLog is logging every roll
     this.setState({ currentPic: newRoll, diceLog: [... diceLog, newRoll] })
   }
 
@@ -44,7 +44,7 @@ class Board extends Component{
     const { currentPic, diceLog } = this.state
     return(
       <div id="board-container">
-        // 6)
+        // 6)your passing the Dice component to the parent class
         <Dice
           roll={ this.handleRoll }
           currentPic={ currentPic }
@@ -66,9 +66,9 @@ export default Board
 import React, { Component } from 'react'
 
 class Dice extends Component{
-  // 7)
+  // 7)rendering an element into the DOM
   render(){
-    // 8)
+    // 8)destructuring currentPic and roll
     const { currentPic, roll } = this.props
     return(
       <div id="dice-container">
