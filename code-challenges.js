@@ -3,7 +3,7 @@
 
 // --------------------1) Create a function that returns the first 10 numbers of the Fibonacci sequence in an array. Expected output: [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 const fibonacci = () => {
-  
+
 }
 
 
@@ -71,10 +71,11 @@ var numbersToAdd2 = [0, 7, -8, 12]
 // Expected output: [0, 7, -1, 11]
 var numbersToAdd3 = []
 // Expected output: []
-var newArray = []
+var lastNum = 0
 
 const sequence = (array) => {
-  let newArray = array.reduce(function(a, b, i){
-    return newArray[i] = a + b; }, 0);
+  return array.map(number => lastNum += number)
 }
-console.log(sequence(numbersToAdd1));
+console.log(sequence(numbersToAdd1))
+console.log(sequence(numbersToAdd2))
+console.log(sequence(numbersToAdd3))
